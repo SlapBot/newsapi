@@ -238,6 +238,8 @@ s.all_base_information()
 	s.information().all_base_information()
 
 
+same logic can be applied for **all_sorted_information()**.
+
 s.all_ids()
 -------------
 
@@ -248,7 +250,7 @@ s.all_ids()
 	s.information().all_ids()
 
 
-same goes for **all_names()** and **all_urls** after invoking **information()** as shown above.
+same goes for **all_names()** and **all_urls()** after invoking **information()** as shown above.
 
 s.search()
 -------------
