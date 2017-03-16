@@ -2,11 +2,11 @@
 newsapi
 **********
 
-|version| |license|
+|version| |license| |wheel| |implementation|
 
 Python wrapper around ``A JSON API for live news and blog headlines`` (a.k.a. ``News Api``): https://newsapi.org/
 
-**NOTE:** This library and its author are not endorsed by or affiliated with `NewsApi.com <https://newsapi.org/>`_.
+**NOTE:** This library and its author are not endorsed by or affiliated with `NewsApi.org <https://newsapi.org/>`_.
 
 
 Installation
@@ -29,7 +29,7 @@ Dependencies
 API
 ===
 
-``newsapi`` offers two classes ``Articles`` and ``Sources`` for the functionality of two endpoints offered by ``News Api`` respectively.
+``newsapi`` offers two classes ``Articles`` and ``Sources`` for the functionality of two endpoints:- *https://newsapi.org/v1/articles* and *https://newsapi.org/v1/sources* offered by ``News Api`` respectively.
 
 
 Articles
@@ -102,7 +102,7 @@ a.get_by_popular()
 	# get all the articles from the new web and sorted by popular (front page).
 	a.get_by_popular(source="the-new-web")
 
-
+*apply the same logic for* **get_by_top()** *and* **get_by_latest()**.
 
 Sources
 --------------
@@ -137,7 +137,7 @@ Method                                 Parameters                               
 ``all()``                              No parameters needed.                                                                                      wrapper around get() to get all sources unfiltered.                                                             ``AttrDict``
 ``get_by_category()``                  category (required).                                                                                       The category you would like to get sources for.                                                                 ``AttrDict``
 ``get_by_language()``                  language (required).                                                                                       The 2-letter ISO-639-1 code of the language you would like to get sources for.                                  ``AttrDict``
-``get_by_language()``                  country (required).                                                                                        The 2-letter ISO 3166-1 code of the country you would like to get sources for.                                  ``AttrDict``
+``get_by_country()``                   country (required).                                                                                        The 2-letter ISO 3166-1 code of the country you would like to get sources for.                                  ``AttrDict``
 ``information()``                      No parameters needed.                                                                                      Sets up everything by sending an unfiltered request and then sorting it.                                        ``Self``
 ``all_sorted_information()``           No parameters needed.                                                                                      gives back all the sources.                                                                                     ``Array``
 ``all_categories``                     detailed (optional, Default: False, gives all the information of sources group by categories).             Gets all the categories available by newsapi and grouped with info if detailed set to true.                     ``dict_keys``/``Dict``
@@ -200,11 +200,12 @@ s.get_by_category()
 	# get all sources offered by newsapi with category as general
 	s.get_by_category("general")
 
+*same logic can be applied to* **get_by_language()** *and* **get_by_country()**
 
 
 s.information()
 --------------------
-
+**Note** : you need to invoke **information()** method only once and after then you can use any methods given below. chaining them or not is all upto each individual's preference.
 
 .. code-block:: python
 
@@ -225,6 +226,8 @@ s.information()
 	# ['general' : [{'id': "the-new-web", 'name': "The New Web"}, ...], 'sports': [{'id': "bbc-sports", 'name': "The BBC Sports"},...], ...]
 
 
+same logic can be applied for **all_languages()** and **all_countries()**, after invoking **information()** as shown above.
+
 s.all_base_information()
 ---------------------------
 
@@ -233,7 +236,6 @@ s.all_base_information()
 
 	# get all sources in the name, url pair dict format offered by newsapi
 	s.information().all_base_information()
-
 
 
 s.all_ids()
@@ -245,6 +247,8 @@ s.all_ids()
 	# get all sources ids offered by newsapi
 	s.information().all_ids()
 
+
+same goes for **all_names()** and **all_urls** after invoking **information()** as shown above.
 
 s.search()
 -------------
@@ -262,8 +266,14 @@ Errors and Exceptions
 Under the hood, ``newsapi`` uses the `requests <http://www.python-requests.org/>`_ library. For a listing of explicit exceptions raised by ``requests``, see `Requests: Errors and Exceptions <http://www.python-requests.org/en/latest/user/quickstart/#errors-and-exceptions>`_.
 
 
-.. |version| image:: http://img.shields.io/pypi/v/omdb.svg?style=flat-square
+.. |version| image:: http://img.shields.io/pypi/v/newsapi.svg?style=flat-square
     :target: https://pypi.python.org/pypi/newsapi
 
-.. |license| image:: http://img.shields.io/pypi/l/omdb.svg?style=flat-square
+.. |license| image:: http://img.shields.io/pypi/l/newsapi.svg?style=flat-square
     :target: https://pypi.python.org/pypi/newsapi
+
+.. |wheel| image:: https://img.shields.io/pypi/wheel/newsapi.svg
+    :target: :target: https://pypi.python.org/pypi/newsapi
+
+.. |implementation| image:: https://img.shields.io/pypi/implementation/newsapi.svg
+    :target: :target: https://pypi.python.org/pypi/newsapi
