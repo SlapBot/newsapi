@@ -78,7 +78,7 @@ General Import
 
 .. code-block:: python
 
-	from newsapi.articles import Articles
+    from newsapi.articles import Articles
 
     a = Articles(API_KEY="Your-api-key")
 
@@ -164,7 +164,7 @@ General Import
 
 .. code-block:: python
 
-	from newsapi.sources import Sources
+    from newsapi.sources import Sources
 
     s = Sources(API_KEY="Your-api-key")
 
