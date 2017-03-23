@@ -90,3 +90,8 @@ ENV/
 
 #pycharm
 .idea/
+
+#sphinx settings
+_build
+_static
+_templates
